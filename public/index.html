@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>spec-review</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div id="banner" class="banner" hidden></div>
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="sidebar-head">
+          <h1>spec-review</h1>
+          <div id="target" class="muted"></div>
+        </div>
+        <nav id="spec-list" class="spec-list"></nav>
+        <div id="orphan-list" class="orphan-list"></div>
+        <div class="sidebar-foot">
+          <label class="muted" for="author">Author</label>
+          <input id="author" type="text" autocomplete="off" />
+        </div>
+      </aside>
+
+      <main class="content">
+        <div id="doc-title" class="doc-title muted">Select a spec from the sidebar.</div>
+        <article id="doc" class="doc"></article>
+      </main>
+
+      <aside class="comments">
+        <div class="comments-head">
+          <strong>Comments</strong>
+          <select id="filter">
+            <option value="all">All</option>
+            <option value="open">Open</option>
+            <option value="resolved">Resolved</option>
+            <option value="wontfix">Won't fix</option>
+            <option value="needs-anchor">Needs re-anchor</option>
+          </select>
+        </div>
+        <div id="comment-list" class="comment-list"></div>
+      </aside>
+    </div>
+
+    <div id="composer" class="composer" hidden>
+      <div class="composer-quote" id="composer-quote"></div>
+      <textarea id="composer-body" placeholder="Add a comment about the selected passage…"></textarea>
+      <div class="composer-actions">
+        <button id="composer-cancel" class="btn">Cancel</button>
+        <button id="composer-save" class="btn btn-primary">Comment</button>
+      </div>
+    </div>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

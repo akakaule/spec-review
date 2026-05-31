@@ -1,0 +1,14 @@
+{
+  "name": "spec-review",
+  "owner": {
+    "name": "Alvin Kaule",
+    "url": "https://github.com/akakaule"
+  },
+  "plugins": [
+    {
+      "name": "spec-review",
+      "source": "./",
+      "description": "Apply anchored spec-review feedback to specs (/apply-review): reads *.review.json sidecars, edits the spec, marks comments resolved/wontfix."
+    }
+  ]
+}

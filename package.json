@@ -1,0 +1,42 @@
+{
+  "name": "spec-review",
+  "version": "0.1.0",
+  "description": "Local, repo-agnostic tool to review markdown specs with anchored comments that an agent can apply and resolve.",
+  "type": "module",
+  "bin": {
+    "spec-review": "bin/spec-review.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "public",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node bin/spec-review.js",
+    "test": "node --test"
+  },
+  "keywords": [
+    "spec",
+    "review",
+    "markdown",
+    "comments",
+    "cli"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akakaule/spec-review.git"
+  },
+  "homepage": "https://github.com/akakaule/spec-review#readme",
+  "bugs": {
+    "url": "https://github.com/akakaule/spec-review/issues"
+  },
+  "author": "Alvin Kaule (akakaule)",
+  "license": "MIT",
+  "dependencies": {
+    "markdown-it": "^14.1.0"
+  }
+}
