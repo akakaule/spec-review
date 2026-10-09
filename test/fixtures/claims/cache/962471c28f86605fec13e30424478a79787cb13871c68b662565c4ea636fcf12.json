@@ -1,0 +1,41 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "applies_0": {
+      "type": "noul",
+      "noul": 0.16
+    },
+    "breaks_0": {
+      "type": "noul",
+      "noul": 0.11
+    },
+    "applies_1": {
+      "type": "noul",
+      "noul": 0.05
+    },
+    "breaks_1": {
+      "type": "noul",
+      "noul": 0.23
+    },
+    "applies_2": {
+      "type": "noul",
+      "noul": 0.05
+    },
+    "breaks_2": {
+      "type": "noul",
+      "noul": 0.1
+    },
+    "applies_3": {
+      "type": "noul",
+      "noul": 0.35
+    },
+    "breaks_3": {
+      "type": "noul",
+      "noul": 0.16
+    }
+  },
+  "usage": {
+    "input_tokens": 680,
+    "output_tokens": 164
+  }
+}

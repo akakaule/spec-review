@@ -1,0 +1,57 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "kind_0": {
+      "type": "choice",
+      "choice": "fact",
+      "confidence": 1,
+      "probabilities": {
+        "change": 0,
+        "fact": 1,
+        "requirement": 0,
+        "process": 0,
+        "context": 0
+      }
+    },
+    "kind_1": {
+      "type": "choice",
+      "choice": "fact",
+      "confidence": 1,
+      "probabilities": {
+        "change": 0,
+        "fact": 1,
+        "requirement": 0,
+        "process": 0,
+        "context": 0
+      }
+    },
+    "kind_2": {
+      "type": "choice",
+      "choice": "fact",
+      "confidence": 1,
+      "probabilities": {
+        "change": 0,
+        "fact": 1,
+        "requirement": 0,
+        "process": 0,
+        "context": 0
+      }
+    },
+    "kind_3": {
+      "type": "choice",
+      "choice": "fact",
+      "confidence": 1,
+      "probabilities": {
+        "change": 0,
+        "fact": 1,
+        "requirement": 0,
+        "process": 0,
+        "context": 0
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 1086,
+    "output_tokens": 215
+  }
+}

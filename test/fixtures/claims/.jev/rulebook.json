@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "id": "api-codegen",
+      "source": "AGENTS.md#conventions",
+      "sourceHash": "sha256:a8b0af71ced0f529a8bf21e453934e32f486bc8410ea05ad9bfc436597e7e10c",
+      "applies_when": "The claim changes the HTTP API or the web API client",
+      "requirement": "Change api/openapi.yaml and regenerate the client; leave web/src/api-client.ts to the generator"
+    },
+    {
+      "id": "storage-both-stores",
+      "source": "AGENTS.md#conventions",
+      "sourceHash": "sha256:a8b0af71ced0f529a8bf21e453934e32f486bc8410ea05ad9bfc436597e7e10c",
+      "applies_when": "The claim adds or changes a storage method",
+      "requirement": "Implement the method in both the SQLite and the Postgres store in the same change, and cover it in the shared store tests"
+    },
+    {
+      "id": "no-plugin-system",
+      "source": "AGENTS.md#what-not-to-do",
+      "sourceHash": "sha256:effefca267cb7bf05aed81ceb9a7a63735f229b510383b084d2a9cc9a9e79b73",
+      "applies_when": "The claim adds a way for third parties to extend the product",
+      "requirement": "Keep extensions out of the product; build features directly instead of through a plugin system"
+    },
+    {
+      "id": "incremental-ui",
+      "source": "AGENTS.md#what-not-to-do",
+      "sourceHash": "sha256:effefca267cb7bf05aed81ceb9a7a63735f229b510383b084d2a9cc9a9e79b73",
+      "applies_when": "The claim changes an existing UI page",
+      "requirement": "Change the existing page incrementally instead of rewriting it from scratch"
+    }
+  ]
+}

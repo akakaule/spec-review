@@ -1,7 +1,7 @@
 {
   "name": "spec-review",
-  "version": "0.1.0",
-  "description": "Apply anchored spec-review feedback to specs — the agent half of the spec-review loop. Reads *.review.json sidecars, edits the paired spec to address each open comment, and marks it resolved/wontfix. Provides the /apply-review skill.",
+  "version": "0.2.0",
+  "description": "The agent half of the spec-review loop. /apply-review applies anchored review comments (*.review.json sidecars) to specs. /evaluate-claims scores every claim in a spec or plan with TypeSafe Jev against the repo's architecture rules, the spec's goals and non-goals, and code evidence.",
   "author": {
     "name": "Alvin Kaule",
     "url": "https://github.com/akakaule"
@@ -12,6 +12,10 @@
     "spec",
     "review",
     "markdown",
-    "apply-review"
+    "apply-review",
+    "evaluate-claims",
+    "plan-review",
+    "jev",
+    "typesafe"
   ]
 }

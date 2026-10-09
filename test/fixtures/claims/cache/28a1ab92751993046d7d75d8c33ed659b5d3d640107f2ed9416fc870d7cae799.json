@@ -1,0 +1,88 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "applies_0": {
+      "type": "noul",
+      "noul": 0.27
+    },
+    "breaks_0": {
+      "type": "noul",
+      "noul": 0.16
+    },
+    "applies_1": {
+      "type": "noul",
+      "noul": 0.71
+    },
+    "breaks_1": {
+      "type": "noul",
+      "noul": 0.91
+    },
+    "applies_2": {
+      "type": "noul",
+      "noul": 0.08
+    },
+    "breaks_2": {
+      "type": "noul",
+      "noul": 0.1
+    },
+    "applies_3": {
+      "type": "noul",
+      "noul": 0.14
+    },
+    "breaks_3": {
+      "type": "noul",
+      "noul": 0.17
+    },
+    "nongoal_0": {
+      "type": "noul",
+      "noul": 0.08
+    },
+    "nongoal_1": {
+      "type": "noul",
+      "noul": 0.18
+    },
+    "nongoal_2": {
+      "type": "noul",
+      "noul": 0.18
+    },
+    "goal": {
+      "type": "choice",
+      "choice": "none",
+      "confidence": 0.54,
+      "probabilities": {
+        "goal_1": 0.09,
+        "goal_2": 0.2,
+        "goal_3": 0,
+        "criterion_1": 0,
+        "criterion_2": 0.04,
+        "criterion_3": 0,
+        "criterion_4": 0,
+        "constraint_1": 0.08,
+        "none": 0.59
+      }
+    },
+    "value": {
+      "type": "score",
+      "score": 1.44,
+      "confidence": 0.16,
+      "legend": {
+        "0": "Not at all: the goals are met just as well without it",
+        "1": "Somewhat: it helps a goal, but the goal is met without it",
+        "2": "Required: a goal is not met without it"
+      },
+      "probabilities": {
+        "0": 0.2,
+        "1": 0.16,
+        "2": 0.64
+      }
+    },
+    "speculative": {
+      "type": "noul",
+      "noul": 0.3
+    }
+  },
+  "usage": {
+    "input_tokens": 1371,
+    "output_tokens": 356
+  }
+}
