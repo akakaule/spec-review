@@ -19,6 +19,14 @@ different channels:
 The two compose (the skill can shell out to `npx spec-review`) but have **no hard code
 dependency** on each other.
 
+3. **The `evaluate-claims` agent skill** (`skills/evaluate-claims/`) scores every claim in a spec
+   or plan with TypeSafe's **Jev** model. Jev is a calibrated classifier that answers typed
+   questions and generates no text. The skill checks each claim against the repo's architecture
+   rulebook (`.jev/rulebook.json` in the evaluated repo), the spec's goals and non-goals, and code
+   evidence, and checks plan coverage of acceptance criteria. It implements **spec 021**
+   (`docs/specs/021-evaluate-claims/spec.md`), ships in the same plugin, and needs
+   `TYPESAFE_API_KEY`.
+
 > History: extracted from the NimBus repo (where specs 019/020 originated) on 2026-05-31 so it
 > can ship independently. Initial commit `7a929fb`, default branch `main`.
 
@@ -26,7 +34,7 @@ dependency** on each other.
 
 ```bash
 npm install          # one runtime dep: markdown-it
-npm test             # node:test suite — currently 33 tests, all passing
+npm test             # node:test suite — currently 69 tests, all passing, no network or API key needed
 npm start -- .       # run the web tool against this repo (or any path)
 node bin/spec-review.js docs/specs   # same thing, explicit
 ```
@@ -53,10 +61,13 @@ src/
   util.js                   # slugify, offset<->line conversions
 public/                     # browser UI (app.js, index.html, styles.css) — no build step, served as-is
 skills/apply-review/SKILL.md   # the agent skill (also the plugin's skill component)
+skills/evaluate-claims/        # spec 021 skill: SKILL.md + scripts/evaluate-claims.js (dependency-free engine)
+  scripts/lib/questions.js     # EVERY Jev question and threshold — the one place to review/tune them
+test/fixtures/claims/          # golden fixture: fictional repo + plan with planted failures + recorded Jev cache
 .claude-plugin/
   plugin.json               # plugin manifest
   marketplace.json          # single-repo marketplace so the plugin installs from this repo
-docs/specs/019.. 020..      # the design specs (source of the FR-xxx references in code/skill)
+docs/specs/019.. 020.. 021.. # the design specs (source of the FR-xxx references in code/skill)
 ```
 
 ## Conventions
@@ -80,6 +91,21 @@ docs/specs/019.. 020..      # the design specs (source of the FR-xxx references 
   weaken these — there are SC-006/SC-008 tests guarding them.
 - **JSDoc** on exported functions, referencing the relevant FR. Match the existing terse style.
 
+### evaluate-claims conventions
+
+- **The skill directory is self-contained** (spec 021 NFR-001). Use only Node built-ins: no
+  `markdown-it` and no imports from `src/`. A marketplace install clones the repo without running
+  `npm install`, and `npx skills` copies the skill directory alone. `slugify` is duplicated in
+  `scripts/lib/markdown.js` on purpose.
+- **One question per pair; code decides.** Questions ask one literal thing and point at named
+  state (`` `rules[3].requirement` ``). Do not merge them into compound Choices: the 2026-10-09
+  experiments in spec 021 show compound and negated questions misfire.
+- **After changing `questions.js`, re-record the golden fixture live.** The steps are in
+  README → Development. Diff the verdicts, and commit the new `cache/` with `cache/.gitignore`
+  removed. Tests replay the cache with `--offline`.
+- **The API key comes only from `TYPESAFE_API_KEY`.** Never write it to a file, a fixture or a
+  command line.
+
 ## Known limitations / pending work
 
 - **npm: not yet published.** The package is publish-ready (`name: spec-review`, `bin`, `files`)
@@ -92,6 +118,9 @@ docs/specs/019.. 020..      # the design specs (source of the FR-xxx references 
 - **Sub-block inline anchoring** (selecting across `**bold**`/inline spans) may not map back to
   source and is reported as unanchorable — select plainer prose. Single reviewer per instance;
   no GitHub/GitLab PR-comment integration. (See README "Known limitations".)
+- **evaluate-claims:** `findings` mode, which triages review findings, and threshold calibration
+  against labelled reviews are not built yet (spec 021 §Delivery 3–4). The thresholds are starting
+  values from the experiments and one NimBus dogfood run (spec 021 §Experiments).
 - **Continuous apply is deferred** (spec 020 "Continuous monitoring"): `/loop`, `/schedule`, and a
   tool-driven `--watch-apply` are designed but not built. The on-demand `/apply-review` is the
   shipped trigger.

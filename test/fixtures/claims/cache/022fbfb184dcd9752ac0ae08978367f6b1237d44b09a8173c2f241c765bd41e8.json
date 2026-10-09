@@ -1,0 +1,19 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "relation": {
+      "type": "choice",
+      "choice": "contradicts",
+      "confidence": 1,
+      "probabilities": {
+        "supports": 0,
+        "contradicts": 1,
+        "says_nothing": 0
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 714,
+    "output_tokens": 46
+  }
+}

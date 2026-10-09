@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "document": "docs/plan.md",
+  "claims": [
+    {
+      "id": "L3",
+      "text": "This plan implements [Spec 007](spec.md). Export was the most requested feature in the 2026 user survey.",
+      "kind": "context",
+      "source": {
+        "path": "docs/plan.md",
+        "line": 3,
+        "section": ""
+      },
+      "kindConfidence": 0.77
+    },
+    {
+      "id": "L7",
+      "text": "`server/Notes/NoteRenderer.cs` already converts note blocks to HTML, one block type per method.",
+      "kind": "fact",
+      "source": {
+        "path": "docs/plan.md",
+        "line": 7,
+        "section": "What the code does today"
+      },
+      "kindConfidence": 1,
+      "evidence": [
+        {
+          "path": "server/Notes/NoteRenderer.cs",
+          "lines": "1-26"
+        }
+      ]
+    },
+    {
+      "id": "L8",
+      "text": "The SQLite store loads every note of a notebook in a single query, so export can call `ListNotes` once.",
+      "kind": "fact",
+      "source": {
+        "path": "docs/plan.md",
+        "line": 8,
+        "section": "What the code does today"
+      },
+      "kindConfidence": 1,
+      "evidence": [
+        {
+          "path": "server/Storage/SqliteNoteStore.cs",
+          "lines": "1-19"
+        }
+      ]
+    },
+    {
+      "id": "L9",
+      "text": "`server/Notes/MarkdownWriter.cs` already writes Markdown for the copy-to-clipboard feature.",
+      "kind": "fact",
+      "source": {
+        "path": "docs/plan.md",
+        "line": 9,
+        "section": "What the code does today"
+      },
+      "kindConfidence": 1
+    },
+    {
+      "id": "L10",
+      "text": "The sync protocol ignores endpoints it does not know, so older clients are unaffected by new ones.",
+      "kind": "fact",
+      "source": {
+        "path": "docs/plan.md",
+        "line": 10,
+        "section": "What the code does today"
+      },
+      "kindConfidence": 1
+    },
+    {
+      "id": "L14",
+      "text": "Add a `MarkdownRenderer` next to `NoteRenderer` that converts note blocks to Markdown and copies each image file next to the exported `.md` file.",
+      "kind": "change",
+      "source": {
+        "path": "docs/plan.md",
+        "line": 14,
+        "section": "Steps"
+      },
+      "kindConfidence": 0.87
+    },
+    {
+      "id": "L16",
+      "text": "Add `POST /notes/{id}/export` and `POST /notebooks/{id}/export` to `api/openapi.yaml` and regenerate the client.",
+      "kind": "change",
+      "source": {
+        "path": "docs/plan.md",
+        "line": 16,
+        "section": "Steps"
+      },
+      "kindConfidence": 0.6
+    },
+    {
+      "id": "L18",
+      "text": "Add `ExportAll()` to the SQLite store; the Postgres store can follow in a later release.",
+      "kind": "change",
+      "source": {
+        "path": "docs/plan.md",
+        "line": 18,
+        "section": "Steps"
+      },
+      "kindConfidence": 0.95
+    },
+    {
+      "id": "L19",
+      "text": "Add an \"Export as Markdown\" item to the note menu, hidden when the user cannot read the note.",
+      "kind": "change",
+      "source": {
+        "path": "docs/plan.md",
+        "line": 19,
+        "section": "Steps"
+      },
+      "kindConfidence": 0.89
+    },
+    {
+      "id": "L20",
+      "text": "Rewrite the notebook page from scratch in the new component style so the export button fits.",
+      "kind": "change",
+      "source": {
+        "path": "docs/plan.md",
+        "line": 20,
+        "section": "Steps"
+      },
+      "kindConfidence": 0.95
+    },
+    {
+      "id": "L21",
+      "text": "Add a Markdown import command so users can round-trip their notes.",
+      "kind": "change",
+      "source": {
+        "path": "docs/plan.md",
+        "line": 21,
+        "section": "Steps"
+      },
+      "kindConfidence": 0.92
+    },
+    {
+      "id": "L22",
+      "text": "Add a plugin API so third parties can add more export formats later.",
+      "kind": "change",
+      "source": {
+        "path": "docs/plan.md",
+        "line": 22,
+        "section": "Steps"
+      },
+      "kindConfidence": 0.96
+    },
+    {
+      "id": "L23",
+      "text": "Patch `web/src/api-client.ts` by hand to add the export call until the generator is updated.",
+      "kind": "change",
+      "source": {
+        "path": "docs/plan.md",
+        "line": 23,
+        "section": "Steps"
+      },
+      "kindConfidence": 0.39
+    },
+    {
+      "id": "L24",
+      "text": "Stream notebook exports into the zip so 1,000 notes finish in under 10 seconds, and add a benchmark test.",
+      "kind": "requirement",
+      "source": {
+        "path": "docs/plan.md",
+        "line": 24,
+        "section": "Steps"
+      },
+      "kindConfidence": 0.45
+    },
+    {
+      "id": "L28",
+      "text": "Ship behind the `export` feature flag for one release, then remove the flag.",
+      "kind": "process",
+      "source": {
+        "path": "docs/plan.md",
+        "line": 28,
+        "section": "Rollout"
+      },
+      "kindConfidence": 0.64
+    }
+  ]
+}

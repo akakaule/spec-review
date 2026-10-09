@@ -1,0 +1,21 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "kind_0": {
+      "type": "choice",
+      "choice": "context",
+      "confidence": 0.77,
+      "probabilities": {
+        "change": 0.01,
+        "fact": 0.16,
+        "requirement": 0.01,
+        "process": 0,
+        "context": 0.82
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 481,
+    "output_tokens": 56
+  }
+}

@@ -8,7 +8,7 @@
     {
       "name": "spec-review",
       "source": "./",
-      "description": "Apply anchored spec-review feedback to specs (/apply-review): reads *.review.json sidecars, edits the spec, marks comments resolved/wontfix."
+      "description": "Spec review skills: /apply-review applies anchored review comments to specs; /evaluate-claims scores spec and plan claims with TypeSafe Jev (architecture rules, goals, non-goals, code evidence, plan coverage)."
     }
   ]
 }

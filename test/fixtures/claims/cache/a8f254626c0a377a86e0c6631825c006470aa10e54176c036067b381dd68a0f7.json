@@ -1,0 +1,117 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "kind_0": {
+      "type": "choice",
+      "choice": "change",
+      "confidence": 0.87,
+      "probabilities": {
+        "change": 0.9,
+        "fact": 0,
+        "requirement": 0.02,
+        "process": 0.08,
+        "context": 0
+      }
+    },
+    "kind_1": {
+      "type": "choice",
+      "choice": "change",
+      "confidence": 0.6,
+      "probabilities": {
+        "change": 0.6799999999999999,
+        "fact": 0,
+        "requirement": 0.01,
+        "process": 0.31,
+        "context": 0
+      }
+    },
+    "kind_2": {
+      "type": "choice",
+      "choice": "change",
+      "confidence": 0.95,
+      "probabilities": {
+        "change": 0.96,
+        "fact": 0,
+        "requirement": 0.01,
+        "process": 0.03,
+        "context": 0
+      }
+    },
+    "kind_3": {
+      "type": "choice",
+      "choice": "change",
+      "confidence": 0.89,
+      "probabilities": {
+        "change": 0.91,
+        "fact": 0,
+        "requirement": 0.08,
+        "process": 0.01,
+        "context": 0
+      }
+    },
+    "kind_4": {
+      "type": "choice",
+      "choice": "change",
+      "confidence": 0.95,
+      "probabilities": {
+        "change": 0.96,
+        "fact": 0,
+        "requirement": 0.01,
+        "process": 0.03,
+        "context": 0
+      }
+    },
+    "kind_5": {
+      "type": "choice",
+      "choice": "change",
+      "confidence": 0.92,
+      "probabilities": {
+        "change": 0.94,
+        "fact": 0,
+        "requirement": 0.05,
+        "process": 0.01,
+        "context": 0
+      }
+    },
+    "kind_6": {
+      "type": "choice",
+      "choice": "change",
+      "confidence": 0.96,
+      "probabilities": {
+        "change": 0.97,
+        "fact": 0,
+        "requirement": 0.03,
+        "process": 0,
+        "context": 0
+      }
+    },
+    "kind_7": {
+      "type": "choice",
+      "choice": "change",
+      "confidence": 0.39,
+      "probabilities": {
+        "change": 0.51,
+        "fact": 0,
+        "requirement": 0,
+        "process": 0.49,
+        "context": 0
+      }
+    },
+    "kind_8": {
+      "type": "choice",
+      "choice": "requirement",
+      "confidence": 0.45,
+      "probabilities": {
+        "change": 0.36,
+        "fact": 0,
+        "requirement": 0.56,
+        "process": 0.08,
+        "context": 0
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 2090,
+    "output_tokens": 482
+  }
+}
